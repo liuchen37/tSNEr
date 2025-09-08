@@ -13,5 +13,17 @@ Description: A comprehensive tool for performing and visualisation t-SNE analysi
     flow cytometry FCS files.
 License: MIT + file LICENSE
 Encoding: UTF-8
+Imports: 
+    base64enc,
+    dplyr,
+    flowCore,
+    ggplot2,
+    gridExtra,
+    htmltools,
+    RColorBrewer,
+    Rtsne,
+    tidyr
+Remotes: bioc::flowCore
+biocViews:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
