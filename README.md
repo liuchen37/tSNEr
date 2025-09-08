@@ -13,7 +13,7 @@ The goal of tSNEr is to perform and visualise t-Distributed Stochastic Neighbour
 You can install the development version of tSNEr like so:
 
 ``` r
-# Install from your GitHub repository
+# Install from the GitHub repository
 devtools::install_github("liuchen37/tSNEr")
 ```
 
@@ -27,6 +27,7 @@ To install and load all requested packages:
 cran_packages <- c("Rtsne", "ggplot2", "dplyr", "tidyr", "gridExtra", "htmltools", "RColorBrewer", "base64enc")
 bioc_packages <- c("flowCore")
 
+# Install packages deom CRAN
 installed_packages <- rownames(installed.packages())
 for (pkg in cran_packages) {
   if (!pkg %in% installed_packages) {
