@@ -1,0 +1,31 @@
+Package: tSNEr
+Type: Package
+Title: Interactive t-SNE Analysis for Flow Cytometry Data
+Version: 1.0.0
+Authors@R: c(person("Chen", "Liu",
+    role = c("aut"),
+    email = "chen.liu@umontreal.ca",
+    comment = c(ORCID = "0000-0002-5693-8634")))
+Author: Chen LIu [aut]
+Maintainer: Chen Liu <chen.liu@umontreal.ca>
+Depends: R (>= 4.0)
+Description: A comprehensive tool for performing and visualisation t-SNE analysis on
+    flow cytometry FCS files.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: 
+    base64enc,
+    dplyr,
+    flowCore,
+    ggplot2,
+    gridExtra,
+    htmltools,
+    RColorBrewer,
+    Rtsne,
+    tidyr
+Remotes: bioc::flowCore
+biocViews:
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+URL: https://github.com/liuchen37/tSNEr
+BugReports: https://github.com/liuchen37/tSNEr/issues
