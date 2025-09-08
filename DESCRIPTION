@@ -27,3 +27,5 @@ Remotes: bioc::flowCore
 biocViews:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+URL: https://github.com/liuchen37/tSNEr
+BugReports: https://github.com/liuchen37/tSNEr/issues
