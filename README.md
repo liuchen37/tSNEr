@@ -49,7 +49,7 @@ lapply(c(cran_packages, bioc_packages), library, character.only = TRUE)
 
 ## Usage
 
-Running tSNEr is easy. Put your .fcs files in the folder where the R project was created, then execute:
+Running tSNEr is easy. Put your .fcs files in the directory where the R project was created, then execute:
 
 ``` r
 library(tSNEr)
