@@ -1,6 +1,8 @@
 
 # tSNEr
 
+![alt text]([https://github.com/liuchen37/Pics/blob/main/tSNEr_logo.png?raw=true](https://github.com/liuchen37/Pics/blob/main/tSNEr_logo_small.png?raw=true))
+
 <!-- badges: start -->
 <!-- badges: end -->
 
