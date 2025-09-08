@@ -13,9 +13,6 @@ You can install the development version of tSNEr like so:
 ``` r
 # Install from your GitHub repository
 devtools::install_github("liuchen37/tSNEr")
-
-# Load the package
-library(tSNEr)
 ```
 
 ## Usage
