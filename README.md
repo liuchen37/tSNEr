@@ -28,4 +28,9 @@ result <- main()
 ```
 
 ## Example output
+
 ![alt text](https://github.com/liuchen37/Pics/blob/main/exp_output_tsner.jpg?raw=true)
+
+## But report and comments:
+
+Please send an email to the author: Chen Liu at chen.liu@umontreal.ca
