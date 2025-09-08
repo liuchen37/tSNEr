@@ -18,6 +18,8 @@ devtools::install_github("liuchen37/tSNEr")
 
 ## Prerequisites:
 
+R version >= 4.0
+
 [base64enc](https://cran.r-project.org/web/packages/base64enc/index.html), [Rtsne](https://github.com/jkrijthe/Rtsne), [dplyr](https://github.com/tidyverse/dplyr), [tidyr](https://github.com/tidyverse/tidyr), [flowCore](https://github.com/RGLab/flowCore), [ggplot2](https://github.com/tidyverse/ggplot2), [gridExtra](https://github.com/sourcechord/GridExtra), [htmltools](https://github.com/rstudio/htmltools) and [RColorBrewer](https://github.com/cran/RColorBrewer).
 
 To install and load all requested packages:
