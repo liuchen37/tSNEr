@@ -1,3 +1,3 @@
 # tSNEr 1.0.0
 
-* Initial submission.
+* Initial CRAN submission.
