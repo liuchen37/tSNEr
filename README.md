@@ -27,3 +27,5 @@ library(tSNEr)
 result <- main()
 ```
 
+## Example output
+![alt text](https://github.com/liuchen37/Pics/blob/main/exp_output_tsner.jpg?raw=true)
