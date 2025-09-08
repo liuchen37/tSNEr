@@ -13,7 +13,6 @@ The goal of tSNEr is to perform and visualise t-Distributed Stochastic Neighbour
 You can install the development version of tSNEr like so:
 
 ``` r
-# Install from the GitHub repository
 devtools::install_github("liuchen37/tSNEr")
 ```
 
