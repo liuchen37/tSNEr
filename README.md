@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of tSNEr is to perform and visualise t-Distributed Stochastic Neighbour Embedding based on user-provided flow cytometry FCS files. This package does not require an internet connection.
+The goal of tSNEr is to perform and visualise t-Distributed Stochastic Neighbour Embedding based on user-provided **flow cytometry** FCS files. This package does not require an internet connection.
 
 ## Installation
 
