@@ -28,7 +28,7 @@ To install and load all requested packages:
 cran_packages <- c("Rtsne", "ggplot2", "dplyr", "tidyr", "gridExtra", "htmltools", "RColorBrewer", "base64enc")
 bioc_packages <- c("flowCore")
 
-# Install packages deom CRAN
+# Install packages from CRAN
 installed_packages <- rownames(installed.packages())
 for (pkg in cran_packages) {
   if (!pkg %in% installed_packages) {
