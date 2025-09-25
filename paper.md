@@ -74,9 +74,10 @@ The package tSNEr successfully captures the well-characterised developmental tra
 
 # Acknowledgements
 
-The development of tSNEr involves prestigious contributions provided by several foundational R packages, including base64enc [@Urbanek:2012], Rtsne [@Krijthe:2014], dplyr [@Wickham:2014a], tidyr [@Wickham:2014b], flowCore [@Ellis:2025], ggplot2 [@Wickham:2009], gridExtra [@Auguie:2010], htmltools [@Cheng:2014], and RColorBrewer [@Neuwirth:2002]  .
+The development of tSNEr involves prestigious contributions provided by several foundational R packages, including base64enc [@Urbanek:2012], Rtsne [@Krijthe:2014], dplyr [@Wickham:2014a], tidyr [@Wickham:2014b], flowCore [@Ellis:2025], ggplot2 [@Wickham:2009], gridExtra [@Auguie:2010], htmltools [@Cheng:2014], and RColorBrewer [@Neuwirth:2002].
 
 # References
+
 
 
 
