@@ -44,7 +44,6 @@ $$\textit{perplexity} = \min\left[30, \max\left(5, \sqrt{\frac{n}{100}}\right)\r
 where n represents the total number of cells from all files. This formulation ensures appropriate local neighbourhood sizes across diverse dataset scales, from small pilot experiments to large-scale profiling studies (Pedregosa et al., 2011). The learning rate (η) is determined as 200 by default to maintain stable convergence. The Barnes-Hut approximation parameter θ is set to 0.5, balancing computational efficiency with embedding accuracy. Initial dimensionality reduction via principal component analysis (PCA) as 50 components, accelerates computation and improves optimisation, stability, and is a standard practice in t-SNE implementations (Luecken and Theis, 2019). As shown in [Figure 1]{label="Fig. 1"}, tSNEr automatically calculate perplexity and learning rate based on the total number of cells from all input files.
 
 ![Fig 1. Program-generated default parameters when running two FCS files with a total number of cells as 20,000.\{label="Fig. 1"}}](https://github.com/liuchen37/Pics/blob/main/Figure1_JOSS_LIU_2025.jpg?raw=true)
-
 # T-SNE algorithm implementation
 The t-SNE algorithm proceeds through several computational stages to generate the final two-dimensional embedding. Initial dimensionality reduction via PCA projects the high-dimensional data onto the first 50 principal components, reducing noise and computational complexity while preserving global structure. High-dimensional similarities are computed using Gaussian kernels with adaptive bandwidths. For each cell i, the bandwidth σ[i] is selected such that the perplexity of the conditional distribution equals the user-specified value, where perplexity is defined as **equation 2**:
 
@@ -77,6 +76,7 @@ The package tSNEr successfully captures the well-characterised developmental tra
 The development of tSNEr involves prestigious contributions provided by several foundational R packages, including base64enc (Urbanek, 2012), Rtsne (Krijthe, 2014), dplyr (Wickham et al., 2014a), tidyr (Wickham et al., 2014b), flowCore (B. Ellis et al., 2025), ggplot2 (Wickham, 2009), gridExtra (Auguie, 2010), htmltools (Cheng et al., 2014) and RColorBrewer (Neuwirth, 2002).  
 
 # References
+
 
 
 
