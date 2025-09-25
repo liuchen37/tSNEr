@@ -6,15 +6,15 @@ tags:
   - dimension reduction
 authors:
   - name: Chen Liu
-	orcid: 0000-0002-5693-8634
-	affiliation: "1, 2, 3"
+    orcid: 0000-0002-5693-8634
+    affiliation: "1, 2, 3"
 affilications:
   - name: Department of Medicine, Université de Montréal, Canada
-	index: 1
+    index: 1
   - name: Deaprtment of Microbiology, Infectiology and Immunology, Université de Montréal, Canada
-	index: 2
+    index: 2
   - name: Cell Signalling in Immunotherapy Research Unit, Hospital Maissonneuve-Rosemont Research Centre (CRHMR), Canada
-	index: 3
+    index: 3
 date: 25 September 2025
 bibliography: paper.bib
 
@@ -33,6 +33,7 @@ Flow cytometry has become an indispensable tool for single-cell analysis in immu
 The tSNEr pipeline begins with automated detection and loading of Flow Cytometry Standard (FCS) files from the working directory. Files are imported using the flowCore package without automatic transformation to preserve original measurement scales (B. Ellis et al., 2025). The expression matrix is extracted directly from the FCS file structure, maintaining the original dimensions of n cells × p markers, where each row represents a single cell and each column represents a fluorescence parameter or scatter measurement. Marker annotations are retrieved from the FCS parameter descriptions when available, with automatic fallback to parameter names for channels lacking descriptive metadata. This dual-extraction approach ensures complete marker identification across different FCS file formats and export configurations from various cytometer manufacturers.
 
 Following data import, an interactive marker selection interface allows users to specify relevant parameters for dimensionality reduction analysis. The selection process supports multiple input formats including individual selection, comma-separated lists, and range notation, providing flexibility for different experimental designs. Selected markers undergo quality control filtering where cells containing missing or invalid measurements (NA, NaN, or Inf values) are automatically removed to ensure computational stability. The pipeline requires a minimum of 30 cells for meaningful t-SNE analysis, consistent with perplexity constraints in the underlying algorithm.
+
 
 # Data transformation, normalisation and parameter optimisation
 
