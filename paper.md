@@ -37,34 +37,34 @@ Following data import, an interactive marker selection interface allows users to
 
 # Data transformation, normalisation and parameter optimisation
 
-Flow cytometry data undergoes arcsinh transformation with a cofactor of 5, a standard approach in the field that addresses the unique characteristics of fluorescence measurements [@Finak:2010]. This transformation provides quasi-linear behaviour near zero to preserve resolution of dim populations while exhibiting logarithmic properties at higher intensities to accommodate the broad dynamic range typical of flow cytometry data. Importantly, this transformation gracefully handles negative values that arise from compensation procedures. Following the transformation, each marker is independently scaled to zero mean and unit variance using z-score normalisation. This standardisation ensures equal weighting of all markers in the subsequent dimensionality reduction, preventing high-intensity markers from dominating the distance calculations. The pipeline implements intelligent default parameter selection based on dataset characteristics while allowing user override for specialised analyses. Perplexity, which controls the effective number of neighbours considered for each point, is automatically calculated as **equation 1**:
+Flow cytometry data undergoes arcsinh transformation with a cofactor of 5, a standard approach in the field that addresses the unique characteristics of fluorescence measurements [@Finak:2010]. This transformation provides quasi-linear behaviour near zero to preserve resolution of dim populations while exhibiting logarithmic properties at higher intensities to accommodate the broad dynamic range typical of flow cytometry data. Importantly, this transformation gracefully handles negative values that arise from compensation procedures. Following the transformation, each marker is independently scaled to zero mean and unit variance using z-score normalisation. This standardisation ensures equal weighting of all markers in the subsequent dimensionality reduction, preventing high-intensity markers from dominating the distance calculations. The pipeline implements intelligent default parameter selection based on dataset characteristics while allowing user override for specialised analyses. Perplexity, which controls the effective number of neighbours considered for each point, is automatically calculated:
 
 $$
 \textit{perplexity} = \min\left[30, \max\left(5, \sqrt{\frac{n}{100}}\right)\right]
-$$ (eq 1)
+$$
 
 where n represents the total number of cells from all files. This formulation ensures appropriate local neighbourhood sizes across diverse dataset scales, from small pilot experiments to large-scale profiling studies [@Pedregosa:2011]. The learning rate (η) is determined as 200 by default to maintain stable convergence. The Barnes-Hut approximation parameter θ is set to 0.5, balancing computational efficiency with embedding accuracy. Initial dimensionality reduction via principal component analysis (PCA) as 50 components accelerates computation and improves optimisation, stability, and is a standard practice in t-SNE implementations [@Luecken:2019]. As shown in [Figure 1]{label="Fig. 1"}, tSNEr automatically calculate perplexity and learning rate based on the total number of cells from all input files.
 
 ![Fig 1. Program-generated default parameters when running two FCS files with a total number of cells as 20,000.\{label="Fig. 1"}}](https://github.com/liuchen37/Pics/blob/main/Figure1_JOSS_LIU_2025.jpg?raw=true)
 
 # T-SNE algorithm implementation
-The t-SNE algorithm proceeds through several computational stages to generate the final two-dimensional embedding. Initial dimensionality reduction via PCA projects the high-dimensional data onto the first 50 principal components, reducing noise and computational complexity while preserving global structure. High-dimensional similarities are computed using Gaussian kernels with adaptive bandwidths. For each cell i, the bandwidth σ[i] is selected such that the perplexity of the conditional distribution equals the user-specified value, where perplexity is defined as **equation 2**:
+The t-SNE algorithm proceeds through several computational stages to generate the final two-dimensional embedding. Initial dimensionality reduction via PCA projects the high-dimensional data onto the first 50 principal components, reducing noise and computational complexity while preserving global structure. High-dimensional similarities are computed using Gaussian kernels with adaptive bandwidths. For each cell i, the bandwidth σ[i] is selected such that the perplexity of the conditional distribution equals the user-specified value, where perplexity is defined as:
 
 $$
 \textit{Perplexity} = 2^{H(P[i])}
-$$ (eq 2)
+$$
 
 with H(P[i]) representing the Shannon entropy of the conditional distribution P[j|i]. These conditional probabilities are symmetrised to obtain joint probabilities: 
 
 $$
 P[i, j] = \frac{P[j|i] + P[i|j]}{2n}
-$$ (eq 3)
+$$
 
-The Barnes-Hut algorithm constructs a spatial tree structure enabling O(n log n) computation of gradient approximations. Points sufficiently distant (determined by the ratio of node size to distance exceeding θ) are treated as single entities, dramatically reducing computational requirements for large datasets. Procedural optimisation proceeds via gradient descent with momentum to minimise the Kullback-Leibler (KL) divergence between high-dimensional similarities P and low-dimensional similarities Q (**equation 4**). The low-dimensional similarities employ Student's t-distribution with one degree of freedom: 
+The Barnes-Hut algorithm constructs a spatial tree structure enabling O(n log n) computation of gradient approximations. Points sufficiently distant (determined by the ratio of node size to distance exceeding θ) are treated as single entities, dramatically reducing computational requirements for large datasets. Procedural optimisation proceeds via gradient descent with momentum to minimise the Kullback-Leibler (KL) divergence between high-dimensional similarities P and low-dimensional similarities Q. The low-dimensional similarities employ Student's t-distribution with one degree of freedom: 
 
 $$
 Q[i, j] = \frac{(1 + \|y[i] - y[j]\|^2)^{-1}}{\sum_{k \neq i} (1 + \|y[k] - y[i]\|^2)^{-1}}
-$$ (eq 4)
+$$
 
 where y[i] represents the low-dimensional coordinates of cell i [@Kobak:2019] [@van der Maate:2008]. The optimisation schedule implements early exaggeration (multiplying P by 12) for the first 250 iterations to promote cluster separation, followed by standard optimisation for the remaining iterations [@Kotecha:2010]. Momentum increases from 0.5 to 0.8 after iteration 250 to accelerate convergence while maintaining stability [@Cai:2022].
 
@@ -85,6 +85,7 @@ The package tSNEr successfully captures the well-characterised developmental tra
 The development of tSNEr involves prestigious contributions provided by several foundational R packages, including base64enc [@Urbanek:2012], Rtsne [@Krijthe:2014], dplyr [@Wickham:2014a], tidyr [@Wickham:2014b], flowCore [@Ellis:2025], ggplot2 [@Wickham:2009], gridExtra [@Auguie:2010], htmltools [@Cheng:2014], and RColorBrewer [@Neuwirth:2002].
 
 # References
+
 
 
 
