@@ -60,6 +60,9 @@ result <- main()
 
 ![alt text](https://github.com/liuchen37/Pics/blob/main/exp_output_tsner.jpg?raw=true)
 
+## Citation
+Chen Liu. (2025). liuchen37/tSNEr: 1.0 (1.0). *Zenodo.* https://doi.org/10.5281/zenodo.17080729
+
 ## Bug report, improvements and comments:
 
 Please send an email to the author: Chen Liu at chen.liu@umontreal.ca
